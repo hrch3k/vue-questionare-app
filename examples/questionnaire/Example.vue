@@ -640,8 +640,43 @@ export default {
 
       /* eslint-disable-next-line no-unused-vars */
       const data = this.getData()
-      console.log(data.answers)
-      console.log(data)
+      //console.log(data.answers)
+      //console.log(data)
+
+
+
+
+      // dictionary to store to odgovori.json
+      var dict = {
+        "id": null,
+        "teambuilding": null,
+        "teambuilding_kolikokrat": null,
+        "teambuilding_koliko_zaposlenih": null,
+        "teambuilding_moznost": null,
+        "incentive": null,
+        "incentive_kolikokrat": null,
+        "incentive_koliko_zaposlenih": null,
+        "incentive_moznost": null,
+        "predstavitev_podjetja": null,
+        "predstavitev_kolikokrat": null,
+        "predstavitev_moznost": null,
+        "vecji_korporativni": null,
+        "korporativni_kolikokrat": null,
+        "korporativni_koliko_zaposlenih": null,
+        "korporativni_moznost": null,
+        "drugi_dogodki": null,
+        "ime_priimek_organizatorja": null
+      }
+
+      var count = 0
+      for (var key in dict) {
+        dict[key] = data.answers[count]
+        count++
+        //console.log(key)
+        // do something with "key" and "value" variables
+      }
+      console.log(dict)
+
 
 
 
@@ -653,7 +688,7 @@ export default {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data.answers)
+        body: JSON.stringify(dict)
       })
     },
 
