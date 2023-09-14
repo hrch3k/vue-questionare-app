@@ -112,54 +112,54 @@ export default {
 
 
         }),
-        new QuestionModel({
-          id: 'a',
-          tagline: "Pozdravljeni, prosim odgovorite na par vprašanj :)",
-          title: 'Ali s podjetjem organizirate interne dogodke?',
-          helpTextShow: false,
-          type: QuestionType.MultiplePictureChoice,
-          multiple: false,
-          required: true,
-          options: [
-            new ChoiceOption({
-              imageSrc: require('./assets/images/facebook.png'),
-              imageAlt: 'Facebook logo',
-              label: 'TEAMBUILDING DOGODKI',
-              value: 'teambuilding'
-            }),
-            new ChoiceOption({
-              imageSrc: require('./assets/images/twitter.png'),
-              imageAlt: 'Twitter logo',
-              label: 'INCENTIVE DOGODKI',
-              value: 'incentive'
-            }),
-            new ChoiceOption({
-              imageSrc: require('./assets/images/instagram.png'),
-              imageAlt: 'Instagram logo',
-              label: 'PREDSTAVITVE PODJETJA',
-              value: 'predstavitve'
-            }),
-            new ChoiceOption({
-              imageSrc: require('./assets/images/tiktok.png'),
-              imageAlt: 'TikTok logo',
-              label: 'VEČJI KORPORATIVNI DOGODKI',
-              value: 'vecji_dogodki'
-            }),
-            new ChoiceOption({
-              imageSrc: require('./assets/images/tiktok.png'),
-              imageAlt: 'TikTok logo',
-              label: 'DRUGI DOGODKI',
-              value: 'drugi_dogodki'
-            }),
-          ],
-          jump: {
-            teambuilding: 'firstA',
-            incentive: 'firstB',
-            predstavitve: 'firstC',
-            vecji_dogodki: 'firstD',
-            drugi_dogodki: 'dogodek'
-          }
-        }),
+        //new QuestionModel({
+        //  id: 'a',
+        //  tagline: "Pozdravljeni, prosim odgovorite na par vprašanj :)",
+        //  title: 'Ali s podjetjem organizirate interne dogodke?',
+        //  helpTextShow: false,
+        //  type: QuestionType.MultiplePictureChoice,
+        //  multiple: false,
+        //  required: true,
+        //  options: [
+        //    new ChoiceOption({
+        //      imageSrc: require('./assets/images/facebook.png'),
+        //      imageAlt: 'Facebook logo',
+        //      label: 'TEAMBUILDING DOGODKI',
+        //      value: 'teambuilding'
+        //    }),
+        //    new ChoiceOption({
+        //      imageSrc: require('./assets/images/twitter.png'),
+        //      imageAlt: 'Twitter logo',
+        //      label: 'INCENTIVE DOGODKI',
+        //      value: 'incentive'
+        //    }),
+        //    new ChoiceOption({
+        //      imageSrc: require('./assets/images/instagram.png'),
+        //      imageAlt: 'Instagram logo',
+        //      label: 'PREDSTAVITVE PODJETJA',
+        //      value: 'predstavitve'
+        //    }),
+        //    new ChoiceOption({
+        //      imageSrc: require('./assets/images/tiktok.png'),
+        //      imageAlt: 'TikTok logo',
+        //      label: 'VEČJI KORPORATIVNI DOGODKI',
+        //      value: 'vecji_dogodki'
+        //    }),
+        //    new ChoiceOption({
+        //      imageSrc: require('./assets/images/tiktok.png'),
+        //      imageAlt: 'TikTok logo',
+        //      label: 'DRUGI DOGODKI',
+        //      value: 'drugi_dogodki'
+        //    }),
+        //  ],
+        //  jump: {
+        //    teambuilding: 'firstA',
+        //    incentive: 'firstB',
+        //    predstavitve: 'firstC',
+        //    vecji_dogodki: 'firstD',
+        //    drugi_dogodki: 'dogodek'
+        //  }
+        //}),
 
 
 
@@ -186,10 +186,87 @@ export default {
 
           ],
           jump: {
-            da: 'kolikokrat',
-            ne: 'c'
+
+            ne: 'c1'
           }
         }),
+        new QuestionModel({
+          id: 'kolikokrat1',
+          //tagline: 'Kolikokrat organizirate takšne dogodke',
+          title: 'Kolikokrat organizirate takšne dogodke',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Enkrat na leto'
+            }),
+            new ChoiceOption({
+              label: 'Dvakrat na leto'
+            }),
+            new ChoiceOption({
+              label: 'Več kot dvakrat na leto '
+            })
+          ]
+        }),
+        new QuestionModel({
+          id: 'zakoliko1',
+          //tagline: 'Kolikokrat organizirate takšne dogodke',
+          title: 'Za koliko zaposlenih?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Do 5 zaposlenih'
+            }),
+            new ChoiceOption({
+              label: 'Do 20 zaposlenih'
+            }),
+            new ChoiceOption({
+              label: 'Več kot 20 zaposlenih'
+            })
+          ],
+          jump: {
+            _other: 'firstB'
+          }
+        }),
+
+        new QuestionModel({
+          id: 'c1',
+          tagline: 'Hvala za odgovor 😊',
+          title: 'Ali obstaja želja/možnost, da bi take dogodke organizirali?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Da',
+              value: 'da'
+
+            }),
+            new ChoiceOption({
+              label: 'Ne',
+              value: 'ne'
+            })
+
+          ],
+          //jump: {
+          //  da: '_submit',
+          //  ne: '_submit'
+          //}
+
+
+
+
+        }),
+
 
         new QuestionModel({
           id: 'firstB',
@@ -213,9 +290,85 @@ export default {
 
           ],
           jump: {
-            da: 'kolikokrat',
-            ne: 'c'
+            //da: 'kolikokrat2',
+            ne: 'c2'
           }
+
+
+
+
+        }),
+        new QuestionModel({
+          id: 'kolikokrat2',
+          //tagline: 'Kolikokrat organizirate takšne dogodke',
+          title: 'Kolikokrat organizirate takšne dogodke',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Enkrat na leto'
+            }),
+            new ChoiceOption({
+              label: 'Dvakrat na leto'
+            }),
+            new ChoiceOption({
+              label: 'Več kot dvakrat na leto '
+            })
+          ]
+        }),
+        new QuestionModel({
+          id: 'zakoliko2',
+          //tagline: 'Kolikokrat organizirate takšne dogodke',
+          title: 'Za koliko zaposlenih?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Do 5 zaposlenih'
+            }),
+            new ChoiceOption({
+              label: 'Do 20 zaposlenih'
+            }),
+            new ChoiceOption({
+              label: 'Več kot 20 zaposlenih'
+            })
+          ],
+          jump: {
+            _other: 'firstC'
+          }
+        }),
+
+        new QuestionModel({
+          id: 'c2',
+          tagline: 'Hvala za odgovor 😊',
+          title: 'Ali obstaja želja/možnost, da bi take dogodke organizirali?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Da',
+              value: 'da'
+
+            }),
+            new ChoiceOption({
+              label: 'Ne',
+              value: 'ne'
+            })
+
+          ],
+          //jump: {
+          //  da: '_submit',
+          //  ne: '_submit'
+          //}
 
 
 
@@ -243,14 +396,71 @@ export default {
 
           ],
           jump: {
-            da: 'kolikokrat_predstavitve',
-            ne: 'c'
+            da: 'kolikokrat3',
+            ne: 'c3'
           }
 
 
 
 
         }),
+        new QuestionModel({
+          id: 'kolikokrat3',
+          //tagline: 'Kolikokrat organizirate takšne dogodke',
+          title: 'Kolikokrat organizirate takšne dogodke',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Enkrat na leto'
+            }),
+            new ChoiceOption({
+              label: 'Dvakrat na leto'
+            }),
+            new ChoiceOption({
+              label: 'Več kot dvakrat na leto '
+            })
+          ],
+          jump: {
+            _other: 'firstD'
+          }
+        }),
+
+
+        new QuestionModel({
+          id: 'c3',
+          tagline: 'Hvala za odgovor 😊',
+          title: 'Ali obstaja želja/možnost, da bi take dogodke organizirali?',
+          helpTextShow: false,
+          type: QuestionType.MultipleChoice,
+          multiple: false,
+          allowOther: false,
+          required: true,
+          options: [
+            new ChoiceOption({
+              label: 'Da',
+              value: 'da'
+
+            }),
+            new ChoiceOption({
+              label: 'Ne',
+              value: 'ne'
+            })
+
+          ],
+          //jump: {
+          //  da: '_submit',
+          //  ne: '_submit'
+          //}
+
+
+
+
+        }),
+
         new QuestionModel({
           id: 'firstD',
           tagline: 'Dan prodajalcev, športni dan za vse zaposlene, workshop delavnice za vodstveni kader, itd 😊',
@@ -273,46 +483,18 @@ export default {
 
           ],
           jump: {
-            da: 'kolikokrat',
-            ne: 'c'
+            da: 'kolikokrat4',
+            ne: 'c4'
           }
 
 
 
 
         }),
+
+
         new QuestionModel({
-          id: 'c',
-          tagline: 'Hvala za odgovor 😊',
-          title: 'Ali obstaja želja/možnost, da bi take dogodke organizirali?',
-          helpTextShow: false,
-          type: QuestionType.MultipleChoice,
-          multiple: false,
-          allowOther: false,
-          required: true,
-          options: [
-            new ChoiceOption({
-              label: 'Da',
-              value: 'da'
-
-            }),
-            new ChoiceOption({
-              label: 'Ne',
-              value: 'ne'
-            })
-
-          ],
-          jump: {
-            da: '_submit',
-            ne: '_submit'
-          }
-
-
-
-
-        }),
-        new QuestionModel({
-          id: 'kolikokrat',
+          id: 'kolikokrat4',
           //tagline: 'Kolikokrat organizirate takšne dogodke',
           title: 'Kolikokrat organizirate takšne dogodke',
           helpTextShow: false,
@@ -333,7 +515,7 @@ export default {
           ]
         }),
         new QuestionModel({
-          id: 'zakoliko',
+          id: 'zakoliko4',
           //tagline: 'Kolikokrat organizirate takšne dogodke',
           title: 'Za koliko zaposlenih?',
           helpTextShow: false,
@@ -343,23 +525,26 @@ export default {
           required: true,
           options: [
             new ChoiceOption({
-              label: 'Do 5 zaposlenih'
+              label: 'Do 100 zaposlenih'
             }),
             new ChoiceOption({
-              label: 'Do 20 zaposlenih'
+              label: 'Do 500 zaposlenih'
             }),
             new ChoiceOption({
-              label: 'Več kot 20 zaposlenih'
+              label: 'Več kot 500 zaposlenih'
             })
           ],
           jump: {
-            _other: '_submit'
+            _other: 'dogodek'
           }
         }),
+
+
+
         new QuestionModel({
-          id: 'kolikokrat_predstavitve',
-          //tagline: 'Kolikokrat organizirate takšne dogodke',
-          title: 'Kolikokrat organizirate takšne dogodke',
+          id: 'c4',
+          tagline: 'Hvala za odgovor 😊',
+          title: 'Ali obstaja želja/možnost, da bi take dogodke organizirali?',
           helpTextShow: false,
           type: QuestionType.MultipleChoice,
           multiple: false,
@@ -367,35 +552,43 @@ export default {
           required: true,
           options: [
             new ChoiceOption({
-              label: 'Enkrat na leto'
+              label: 'Da',
+              value: 'da'
+
             }),
             new ChoiceOption({
-              label: 'Dvakrat na leto'
-            }),
-            new ChoiceOption({
-              label: 'Več kot dvakrat na leto '
+              label: 'Ne',
+              value: 'ne'
             })
+
           ],
-          jump: {
-            _other: '_submit'
-          }
+          //jump: {
+          //  da: '_submit',
+          //  ne: '_submit'
+          //}
+
+
+
+
         }),
+
+
         new QuestionModel({
           id: 'dogodek',
-          tagline: 'Vpišite dogodke ki jih izvajate',
+          tagline: 'Vsi, ki boste na to vprašanje odgovorili, sodelujete pri žrebu za posebne NTcoin kartice, na katerih bo naloženo 500 NTcoinov',
           title: 'Ali v vašem podjetju izvajate dogodke, ki niso bili navedeni?',
           type: QuestionType.Text,
-          required: true,
+          required: false,
           placeholder: 'Vnesite tukaj ...',
 
         }),
 
         new QuestionModel({
           id: 'organizator',
-          tagline: 'Kulinarična delavnica, obisk vinske kleti,športna aktivnost in druženje, ipd… 😊',
+          //tagline: 'Kulinarična delavnica, obisk vinske kleti,športna aktivnost in druženje, ipd… 😊',
           title: 'Kdo v vašem podjetju je zadolžen za organizacijo dogodkov (ime in priimek)',
           type: QuestionType.Text,
-          required: true,
+          required: false,
           placeholder: 'Vnesite tukaj ...',
           jump: {
             _other: '_submit'
